@@ -40,7 +40,8 @@ Route::get('/who', function () {
 });
 
 
-
+Route::resource('/photos', 'PhotoController');
+Route::resource('/videos', 'VideoController');
 
 //tester
 Route::get('/modal', function () {return view('modal');
