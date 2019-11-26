@@ -10,8 +10,15 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+<<<<<<< HEAD
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0"
+=======
+        "intervention/image": "^2.5",
+        "laravel/framework": "5.8.*",
+        "laravel/tinker": "^1.0",
+        "tcg/voyager": "^1.3"
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -26,7 +33,10 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+<<<<<<< HEAD
     
+=======
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
     "extra": {
         "laravel": {
             "dont-discover": []
@@ -59,5 +69,16 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+<<<<<<< HEAD
     }
 }
+=======
+    },
+    "repositories": {
+        "hooks": {
+            "type": "composer",
+            "url": "https://larapack.io"
+        }
+    }
+}
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75

@@ -16,7 +16,11 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
+<<<<<<< HEAD
     |-------------------------------------------------------lang-------------------
+=======
+    |--------------------------------------------------------------------------
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
     | Application Environment
     |--------------------------------------------------------------------------
     |
@@ -165,6 +169,10 @@ return [
         /*
          * Package Service Providers...
          */
+<<<<<<< HEAD
+=======
+        Intervention\Image\ImageServiceProvider::class,
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
 
         /*
          * Application Service Providers...
@@ -225,6 +233,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
+=======
+        'Image' =>Intervention\Image\Facades\Image::class,
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
 
     ],
 

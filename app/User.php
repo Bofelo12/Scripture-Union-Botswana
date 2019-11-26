@@ -6,7 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+<<<<<<< HEAD
 class User extends Authenticatable
+=======
+class User extends \TCG\Voyager\Models\User
+>>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
 {
     use Notifiable;
 
