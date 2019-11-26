@@ -2,16 +2,16 @@
 
 @section('content')
 <h1>Member uploading files</h1>
-<form method="POST" action="{{action('PhotoController@store')}}" enctype="multipart/form-data">
+<form method="POST" action="{{action('FilesController@store')}}" enctype="multipart/form-data">
 
     {{ csrf_field() }}
     <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" class="form-control" name="name">
     </div>
-    @if ($errors->has('photo.0'))
+    @if ($errors->has('doc.0'))
                         <div class="alert alert-danger" role="alert">
-                            {{ $errors->first('photo.0') }}
+                            {{ $errors->first('doc.0') }}
                         </div>
      @endif
     <!--if ($errors->has('photo'))
@@ -20,29 +20,29 @@
         </div>
     endif-->
     <div class="form-group">
-        <label for="photo">Photo:</label>
-        <input type="file" class="form-control" name="photo[]" required>
+        <label for="doc">File:</label>
+        <input type="file" class="form-control" name="doc[]" required>
     </div>
 
-    @if ($errors->has('photo.1'))
+    @if ($errors->has('doc.1'))
         <div class="alert alert-danger" role="alert">
-            {{ $errors->first('photo.1') }}
+            {{ $errors->first('doc.1') }}
         </div>
         @endif
     <div class="form-group">
-        <label for="photo">Photo:</label>
-        <input type="file" class="form-control" name="photo[]">
+        <label for="doc">Photo:</label>
+        <input type="file" class="form-control" name="doc[]">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-<div class="container">
-    <div class="row">
-    @foreach($photos as $photo)
-     <div  class="col">
-            <img  src="{{asset(Storage::url($photo))}}" alt="Card image cap" width="300px" height="200px">
-     </div>
+<div class="p-2" style="width: 80%;">
+    <div class="card-columns">
+    @foreach($docs as $doc)
+        <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="{{asset($doc->getUrlPath()) }}" alt="Card image cap">
+        </div>
     @endforeach
-</div>
+    </div>
 </div>
 @endsection

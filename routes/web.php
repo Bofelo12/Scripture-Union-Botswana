@@ -41,7 +41,7 @@ Route::get('/who', function () {
 
 
 Route::resource('/photos', 'PhotoController');
-Route::resource('/videos', 'VideoController');
+Route::resource('/files', 'FilesController');
 
 //tester
 Route::get('/modal', function () {return view('modal');
@@ -51,3 +51,8 @@ Route::get('/modal', function () {return view('modal');
 Auth::routes();
 
 Route::get('/lk', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

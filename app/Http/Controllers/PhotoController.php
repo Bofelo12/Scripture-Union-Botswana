@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UploadPhotoRequest;
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class PhotoController extends Controller
@@ -16,7 +17,8 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        $photos = Photo::all();
+       //$photos = Photo::all();
+        $photos = Storage::files('public/images');
       
         return view('index', compact('photos'));
     }

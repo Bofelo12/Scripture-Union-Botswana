@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UploadVideoRequest;
-use App\Video;
+use App\Files;
 use Illuminate\Http\Request;
 
-class VideoController extends Controller
+
+class FilesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Video::all();
-        return view('videos', compact('videos'));
+        $docs = Files::all();
+      
+        return view('files', compact('docs'));
     }
 
     /**
@@ -37,27 +38,21 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //uploading photo
-        //$path = $request->file('photo')->store('public/images');
-        //uploading a photo with a name
-         $name = $request->get('name');
-         $extension = $request->file('video')->extension();
-         $path = $request->file('video')->storeAs('public/videos', $name.'.' . $extension);
-        //$dt = now();
-        //foreach ($request->file('video.*') as $key => $file) {
-          ///  $extension = $file->extension();
+        $dt = now();
+        foreach ($request->file('doc.*') as $key => $file) {
+            $extension = $file->extension();
             //$path = $file->storeAs('public/images', "my_photo.$key.$extension");
-           // $path = $file->storeAs('public/videos', implode('.', [
-             //   $dt->format('YmdHis'),
-               // $key,
-                //$extension
-            ///]));
+            $path = $file->storeAs('public/files', implode('.', [
+                $dt->format('YmdHis'),
+                $key,
+                $extension
+            ]));
 
-            $video = new Video();
-            $video->name = $request->get('name');
-            $video->path = $path;
-            $video->save();       
-        //}
+            $file = new Files();
+            $file->name = $request->get('name');
+            $file->path = $path;
+            $file->save();       
+        }
 
         return view('success');
     }
@@ -65,10 +60,10 @@ class VideoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Video  $video
+     * @param  \App\Files  $files
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video)
+    public function show(Files $files)
     {
         //
     }
@@ -76,10 +71,10 @@ class VideoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Video  $video
+     * @param  \App\Files  $files
      * @return \Illuminate\Http\Response
      */
-    public function edit(Video $video)
+    public function edit(Files $files)
     {
         //
     }
@@ -88,10 +83,10 @@ class VideoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Video  $video
+     * @param  \App\Files  $files
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Video $video)
+    public function update(Request $request, Files $files)
     {
         //
     }
@@ -99,10 +94,10 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Video  $video
+     * @param  \App\Files  $files
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Video $video)
+    public function destroy(Files $files)
     {
         //
     }

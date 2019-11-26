@@ -4,13 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Video extends Model
+class Files extends Model
 {
-    protected $table = 'videos';
+    protected $table  = 'files';
 
-    protected $fillable = [
-        'path', 'name',
-    ];
+    public $fillable = ['path', 'name'];
 
     public function getUrlPath(){
         return Storage::url($this->path);
