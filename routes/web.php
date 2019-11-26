@@ -42,6 +42,14 @@ Route::get('/who', function () {
 
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
+Route::get('/events', 'EventController@index')->name('eventMenu');
+Route::post('/events', 'EventController@index')->name('eventMenu');
+Route::post('/eventCreate', 'EventController@create');
+Route::resource('/event', 'EventController')->except(
+    'index', 'create'
+);
+
+
 
 //tester
 Route::get('/modal', function () {return view('modal');
