@@ -4,12 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "4731429c7f25ab92eaa813447a972209",
-    "packages": [
-        {
-=======
-    "content-hash": "1d9d1ea76026860c764773c70b9aedd8",
+    "content-hash": "c0afc5b9317190ad90733601415da3c8",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -376,7 +371,6 @@
             "time": "2019-11-06T16:40:04+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
             "source": {
@@ -401,15 +395,6 @@
                 "psr-4": {
                     "XdgBaseDir\\": "src/"
                 }
-<<<<<<< HEAD
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "implementation of xdg base directory specification for php",
-            "time": "2014-10-24T07:27:01+00:00"
-=======
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -668,7 +653,6 @@
                 "events"
             ],
             "time": "2019-11-10T09:48:07+00:00"
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
         },
         {
             "name": "doctrine/inflector",
@@ -1012,8 +996,6 @@
             "time": "2019-09-03T16:45:42+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "guzzlehttp/psr7",
             "version": "1.6.1",
             "source": {
@@ -1155,7 +1137,6 @@
             "time": "2019-11-02T09:15:47+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -1170,16 +1151,6 @@
                 "shasum": ""
             },
             "require": {
-<<<<<<< HEAD
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "jakub-onderka/php-code-style": "1.0",
-                "jakub-onderka/php-parallel-lint": "1.0",
-                "jakub-onderka/php-var-dump-check": "0.*",
-                "phpunit/phpunit": "~4.3",
-                "squizlabs/php_codesniffer": "1.*"
-=======
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -1391,62 +1362,15 @@
             "require-dev": {
                 "orchestra/testbench": "~3.0",
                 "phpunit/phpunit": "^6.2|^5.6"
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
-                    "JakubOnderka\\PhpConsoleColor\\": "src/"
-=======
                     "Larapack\\Hooks\\": "src/"
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-<<<<<<< HEAD
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Jakub Onderka",
-                    "email": "jakub.onderka@gmail.com"
-                }
-            ],
-            "time": "2018-09-29T17:23:10+00:00"
-        },
-        {
-            "name": "jakub-onderka/php-console-highlighter",
-            "version": "v0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/JakubOnderka/PHP-Console-Highlighter.git",
-                "reference": "9f7a229a69d52506914b4bc61bfdb199d90c5547"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/JakubOnderka/PHP-Console-Highlighter/zipball/9f7a229a69d52506914b4bc61bfdb199d90c5547",
-                "reference": "9f7a229a69d52506914b4bc61bfdb199d90c5547",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "jakub-onderka/php-console-color": "~0.2",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "jakub-onderka/php-code-style": "~1.0",
-                "jakub-onderka/php-parallel-lint": "~1.0",
-                "jakub-onderka/php-var-dump-check": "~0.1",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~1.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "JakubOnderka\\PhpConsoleHighlighter\\": "src/"
-=======
                 "MIT"
             ],
             "authors": [
@@ -1494,7 +1418,6 @@
             "autoload": {
                 "psr-4": {
                     "Larapack\\VoyagerHooks\\": "src/"
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1503,15 +1426,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
-                    "name": "Jakub Onderka",
-                    "email": "acci@acci.cz",
-                    "homepage": "http://www.acci.cz/"
-                }
-            ],
-            "description": "Highlight PHP code in terminal",
-            "time": "2018-09-29T18:48:56+00:00"
-=======
                     "name": "Mark Topper",
                     "email": "mark@ulties.com"
                 }
@@ -1524,7 +1438,6 @@
                 "voyager"
             ],
             "time": "2019-07-06T00:05:24+00:00"
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
         },
         {
             "name": "laravel/framework",
@@ -2227,8 +2140,6 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -2279,7 +2190,6 @@
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "psr/log",
             "version": "1.1.2",
             "source": {
@@ -2449,8 +2359,6 @@
             "time": "2018-10-13T15:16:03+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -2491,7 +2399,6 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "ramsey/uuid",
             "version": "3.8.0",
             "source": {
@@ -2574,8 +2481,6 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "seld/jsonlint",
             "version": "1.7.2",
             "source": {
@@ -2669,7 +2574,6 @@
             "time": "2015-10-13T18:44:15+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "swiftmailer/swiftmailer",
             "version": "v6.2.3",
             "source": {
@@ -3101,8 +3005,6 @@
             "time": "2019-09-17T09:54:03+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "symfony/filesystem",
             "version": "v4.4.0",
             "source": {
@@ -3153,7 +3055,6 @@
             "time": "2019-11-12T14:51:11+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "symfony/finder",
             "version": "v4.4.0",
             "source": {
@@ -4153,8 +4054,6 @@
             "time": "2019-11-12T14:51:11+00:00"
         },
         {
-<<<<<<< HEAD
-=======
             "name": "tcg/voyager",
             "version": "v1.3.0",
             "source": {
@@ -4220,7 +4119,6 @@
             "time": "2019-10-17T16:30:54+00:00"
         },
         {
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.2",
             "source": {

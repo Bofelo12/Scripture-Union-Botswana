@@ -40,8 +40,6 @@ Route::get('/who', function () {
 });
 
 
-<<<<<<< HEAD
-=======
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
 Route::get('/events', 'EventController@index')->name('eventMenu');
@@ -51,7 +49,6 @@ Route::resource('/event', 'EventController')->except(
     'index', 'create'
 );
 
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
 
 
 //tester
@@ -62,11 +59,8 @@ Route::get('/modal', function () {return view('modal');
 Auth::routes();
 
 Route::get('/lk', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-=======
 
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
->>>>>>> 9dbedb5491cffbd5da8d2ba46cf7d76b9f703a75
