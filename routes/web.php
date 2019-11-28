@@ -42,6 +42,14 @@ Route::get('/who', function () {
     return view('who');
 });
 
+Route::get('/messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+Route::get('/messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+Route::post('/messages', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+Route::get('/messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+Route::put('/messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+Route::delete('{id}/destroy', ['as' => 'messages.destroy', 'uses' => 'MessagesController@destroy']);
+
+
 
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
