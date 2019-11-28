@@ -51,9 +51,11 @@ class MessagesController extends Controller
     {
         
         $input = $request->all();
-        $extension = $request->file('message_file')->extension();
-        $path = $request->file('message_file')->store('public/message');
-
+        $path ="";
+        if($request->file('message_file')){
+            $extension = $request->file('message_file')->extension();
+            $path = $request->file('message_file')->store('public/message');
+        }
         $thread = Thread::create(
             [
                 'subject' => $input['subject'],

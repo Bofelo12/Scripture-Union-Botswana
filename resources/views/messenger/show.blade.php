@@ -12,14 +12,20 @@
                 <div class="media-body">
                     <h5 class="media-heading">{!! $message->user->name !!}</h5>
                     <p>{!! $message->body !!}</p>
-                    @foreach($files as $file)
-                    <img src="{{asset(Storage::url($file->file_path))}}" alt="download attachment" width="250px">
                    
-                    @endforeach
                     <div class="text-muted"><small>Posted {!! $message->created_at->diffForHumans() !!}</small></div>
                 </div>
             </div>
         @endforeach
+
+        <p>Attachments:</p>
+
+        @foreach($files as $file)
+        <img src="{{asset(Storage::url($file->file_path))}}" alt="download attachment" width="250px">
+       
+        @endforeach
+
+
 
         <h2>Add a new message</h2>
         {!! Form::open(['route' => ['messages.update', $thread->id], 'method' => 'PUT']) !!}
