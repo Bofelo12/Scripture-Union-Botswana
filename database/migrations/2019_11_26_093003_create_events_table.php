@@ -17,8 +17,12 @@ class CreateEventsTable extends Migration
             $table->bigIncrements('id');
             $table->string('event_name');
             $table->string('event_venue');
-            $table->date('event_date');
-            $table->time('event_time');
+            $table->timestamp('start_date')->nullable();
+            $table->timestamp('end_date')->nullable();
+            $table->time('start_time');
+            $table->time('end_time');   
+           // $table->string('event_type'); -- add
+            //$table->string('event_type');  -- add author      
             $table->timestamps();
         });
     }

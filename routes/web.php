@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/loadMessages',function(){
+    return view('messages.home');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
-
 
 Route::get('/home', function () {
     return view('welcome');
@@ -50,7 +53,9 @@ Route::delete('{id}/destroy', ['as' => 'messages.destroy', 'uses' => 'MessagesCo
 
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
-Route::get('/events', 'EventController@index')->name('eventMenu');
+Route::get('/events', 'EventController@index')->name('events');
+Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');
+Route::get('/events/edit/{id}', 'EventController@edit')->name('editEvent');
 Route::post('/events', 'EventController@index')->name('eventMenu');
 Route::post('/eventCreate', 'EventController@create');
 Route::resource('/event', 'EventController')->except(
