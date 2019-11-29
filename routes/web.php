@@ -49,6 +49,8 @@ Route::get('/messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesContro
 Route::put('/messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 Route::delete('{id}/destroy', ['as' => 'messages.destroy', 'uses' => 'MessagesController@destroy']);
 
+Route::get('/blogs', 'BlogController@index');
+Route::get('/blog/{slug}', ['as' => 'blog.show', 'uses' => 'BlogController@show']);
 
 
 Route::resource('/photos', 'PhotoController');

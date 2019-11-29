@@ -37,4 +37,13 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUser($id){
+        $final_user="";
+        $users = $this->where('id','=', $id)->select('name')->get()->toArray();
+        foreach($users as $user){
+          $final_user =$user['name'];
+        }
+        return $final_user;
+    }
 }
