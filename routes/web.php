@@ -29,6 +29,8 @@ Route::get('/activities', function () {
 Route::get('/contact', function () {
     return view('contact_us');
 });
+Route::post('/contact/send', 'SendEmailController@send');
+
 
 Route::get('/events', function () {
     return view('holiday&events');

@@ -129,20 +129,20 @@
     <div class="container">
       <h6>Complete the form below and we will get back to you.</h6>
       <br>
-      <form action="" method="post">
-
+      <form action="{{url('contact/send')}}" method="post">
+        @csrf
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="">Name:</label>
+            <label for="name">Name:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              <input type="text" class="form-control" name="name" id="" aria-describedby="helpId" placeholder="">
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="">Surname:</label>
+            <label for="surname">Surname:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              <input type="text" class="form-control" name="surname" id="" aria-describedby="helpId" placeholder="">
             </div>
           </div>
         </div>
@@ -150,16 +150,16 @@
 
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="">Email:</label>
+            <label for="email">Email:</label>
             <div class="col-sm-8">
-              <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+              <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="">
             </div>
           </div>
 
           <div class="form-group col-md-6">
-            <label for="">Contact:</label>
+            <label for="contact">Contact:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+              <input type="text" class="form-control" name="contact" id="" aria-describedby="helpId" placeholder="">
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@
         <div class="form-group">
           <label for="">Message:</label>
           <div class="col-sm-8">
-            <textarea class="form-control" name="" id="" rows="3"></textarea>
+            <textarea class="form-control" name="message" id="" rows="3"></textarea>
           </div>
         </div>
 
