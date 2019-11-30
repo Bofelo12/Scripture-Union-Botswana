@@ -22,58 +22,48 @@
       width: 100%;
       height: 100%;
     }
-
     .carousel-caption {
       top: 50%;
       bottom: initial;
       transform: translateY(-50%);
     }
-
     /* :: 8.0 About Us Area CSS */
     .faith-about-area {
       position: relative;
       z-index: 1;
     }
-
     .faith-about-area .about-content {
       text-align: center;
       border-bottom: 2px solid #e8e8e8;
       padding-bottom: 100px;
     }
-
     .faith-about-area .about-content img {
       margin-bottom: 15px;
     }
-
     .faith-about-area .about-content h2 {
       font-size: 36px;
       margin-bottom: 30px;
       font-style: italic;
       font-weight: 500;
     }
-
     @media only screen and (max-width: 767px) {
       .faith-about-area .about-content h2 {
         font-size: 24px;
       }
     }
-
     .faith-about-area .about-content h6 {
       color: #5a5a5a;
       font-weight: 500;
       line-height: 2;
       margin-bottom: 0;
     }
-
     .section-padding-100-0 {
       padding-top: 100px;
       padding-bottom: 0;
     }
-
     .img_yes {
       display: block;
     }
-
     .overlay {
       position: absolute;
       top: 0;
@@ -86,11 +76,9 @@
       transition: .5s ease;
       background-color: #008CBA;
     }
-
     .before:hover .overlay {
       opacity: 1;
     }
-
     .img_no {
       position: absolute;
       top: 50%;
@@ -99,53 +87,39 @@
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
-
     .footer {
       background: #6c757d;
       color: white;
     }
-
     .footer .links ul {
       list-style-type: none;
     }
-
     .footer .links ul li a {
       color: white;
-
     }
-
     .footer .links a:hover {
       color: red;
     }
-
     .about-company i {
       font-size: 25px;
     }
-
     .about-company a {
       color: white;
       transition: color .2s;
-
       &:hover {
         color: #4180CB
       }
     }
-
-
     .location i {
       font-size: 18px;
     }
-
     .copyright p {
       border-top: 1px solid rgba(255, 255, 255, .1);
     }
-
-
     .modal-backdrop {
       background-color: rgb(108, 117, 125) !important;
       opacity: 1 !important;
     }
-
     body {
       padding-top: 5rem;
       background-image: url('img/background.jpg');
@@ -153,7 +127,6 @@
       background-attachment: fixed;
       background-size: 100% 100%;
     }
-
     #su {
       width: 150px;
       height: auto;

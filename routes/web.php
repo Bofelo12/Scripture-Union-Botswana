@@ -50,6 +50,9 @@ Route::put('/messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesCont
 Route::delete('{id}/destroy', ['as' => 'messages.destroy', 'uses' => 'MessagesController@destroy']);
 
 Route::get('/vendor/voyager/gravy','EventController@gravy');
+Route::get('/blogs', 'BlogController@index');
+Route::get('/blog/{slug}', ['as' => 'blog.show', 'uses' => 'BlogController@show']);
+
 
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
