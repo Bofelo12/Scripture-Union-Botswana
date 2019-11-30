@@ -161,7 +161,9 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
-        Illuminate\View\ViewServiceProvider::class,MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
+        MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+        Yajra\Datatables\DatatablesServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,7 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' =>Intervention\Image\Facades\Image::class,
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
-        
+        'Datatables' => Yajra\Datatables\Facades\Datatables::class,
 
     ],
 

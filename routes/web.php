@@ -30,7 +30,7 @@ Route::get('/contact', function () {
     return view('contact_us');
 });
 
-Route::get('/events', function () {
+Route::get('/holidays', function () {
     return view('holiday&events');
 });
 
@@ -49,14 +49,15 @@ Route::get('/messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesContro
 Route::put('/messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 Route::delete('{id}/destroy', ['as' => 'messages.destroy', 'uses' => 'MessagesController@destroy']);
 
-
+Route::get('/vendor/voyager/gravy','EventController@gravy');
 
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
-Route::get('/events', 'EventController@index')->name('events');
+Route::get('/loadEvents', 'EventController@loadEvents')->name('loadEvents');
+Route::get('/addEvent', 'EventController@create')->name('addEvent');
 Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');
 Route::get('/events/edit/{id}', 'EventController@edit')->name('editEvent');
-Route::post('/events', 'EventController@index')->name('eventMenu');
+Route::get('/events', 'EventController@index')->name('eventMenu');
 Route::post('/eventCreate', 'EventController@create');
 Route::resource('/event', 'EventController')->except(
     'index', 'create'

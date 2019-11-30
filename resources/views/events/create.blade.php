@@ -4,7 +4,7 @@
   <div class="">
           <h1 class="page-title">
 <i class="voyager-news"></i>
-Edit Event
+Add Event
 </h1>
           <div id="voyager-notifications"></div>
           <div class="page-content edit-add container">
@@ -13,18 +13,18 @@ Edit Event
 
       <div class="panel panel-bordered">
           <!-- form start -->
-          <form method="post" action="{{action('EventController@update', $id)}}">
-              {{csrf_field()}}
-              <input type="hidden" name="_method" value="PATCH" />            
+          <form method="POST" action="{{action('EventController@store')}}" enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="POST">
+              {{ csrf_field() }}             
    <div class="panel-body">
     <div class="form-group" >                          
         <label class="control-label" for="name">Title</label>
-        <input  required  type="text" value="{{$event->event_name}}" class="form-control" name="title">
+        <input  required  type="text" class="form-control" name="title">
 </div>
 
 <div class="form-group">
         <label for="venue" class="control-label">Venue</label>
-        <input type="text" class="form-control"  value="{{$event->event_venue}}" name="venue" required >
+        <input type="text" class="form-control" name="venue" required >
 </div>
 
 <div class="form-group">
@@ -32,20 +32,20 @@ Edit Event
                
                <div class="col-lg-6">
                       <label for="">Start Date</label>
-                      <input  class="form-control" value="{{$event->start_date}}" name="startDate" id="event_start" type="text" >
+                      <input  class="form-control" name="startDate" id="event_start" type="text" >
     
            </div>
                
             <div class="col-lg-6">
                    <label for="">End Date</label>
-                   <input  class="form-control" value="{{$event->end_date}}" name="endDate" id="event_end" type="text" >
+                   <input  class="form-control" name="endDate" id="event_end" type="text" >
  
         </div>
      </div>
 </div> 
 
 <div class="form-group">
-        <button type="submit" class="btn btn-info col-lg-4">Save Changes</button>
+        <button type="submit" class="btn btn-info col-lg-4">Save Event</button>
   </div>  
            
    </div><!-- panel-body -->
