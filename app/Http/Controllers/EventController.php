@@ -21,11 +21,13 @@ class EventController extends Controller
         $data = Event::all();
         return DataTables::of($data)
         ->addColumn("action",function($data){
-            return 
-            '<center>
-                <a href=""    class="btn btn-sm btn-warning">
+            /**
+             * <a href=""    class="btn btn-sm btn-warning">
                  <span class="hidden-xs hidden-sm">View</span>
-                </a>  
+                </a> 
+             */
+            return 
+            '<center>                 
                 <a href="'.route('editEvent',['id'=>$data->id]).'"  class="btn btn-sm btn-primary">
                 <span class="hidden-xs hidden-sm">Edit</span>
                 </a>
@@ -73,6 +75,35 @@ class EventController extends Controller
         $calendar = Calendar::addEvents($events);
         //print_r($events);
         return view('events.events_calendar', compact('calendar'));
+    }
+
+    public function eventsCalendarFE()
+    {
+       // $event = Event::all()->toArray();
+       // return view('event.event', compact('event'));
+       $events = [];
+        $data = Event::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $url = "events/edit/".$value->id;
+                $events[] = Calendar::event(
+                    $value->event_name,
+                    false,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date),
+                    null,
+                    // Add color and link on event
+	                [
+	                    'color' => 'seagreen',
+	                    'url' => 'www.view.event.com',
+	                ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+        //print_r($events);
+      // print("hi");
+        return view('events.events_calendarFE', compact('calendar'));
     }
 
     /**

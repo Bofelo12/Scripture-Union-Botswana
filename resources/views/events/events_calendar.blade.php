@@ -18,18 +18,7 @@
   <link rel="stylesheet" href="{{asset('dash/plugins/fullcalendar-bootstrap/main.min.css')}}">
   <link rel="stylesheet" href="{{asset('dash/dist/css/adminlte.min.css')}}">
  
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-<script src="{{asset('dash/plugins/fullcalendar-daygrid/main.min.js')}}"></script>
-<script src="{{asset('dash/plugins/fullcalendar-timegrid/main.min.js')}}"></script>
-<script src="{{asset('dash/plugins/fullcalendar-interaction/main.min.js')}}"></script>
-<script src="{{asset('dash/plugins/fullcalendar-bootstrap/main.min.js')}}"></script>
-{!! $calendar->script() !!}
 
-
-<script src="{{asset('dash/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('dash/dist/js/adminlte.js')}}"></script>
 <!-- fullCalendar 2.2.5 -->
 
 
@@ -174,6 +163,17 @@
 
 
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+<script src="{{asset('dash/plugins/fullcalendar-daygrid/main.min.js')}}"></script>
+<script src="{{asset('dash/plugins/fullcalendar-timegrid/main.min.js')}}"></script>
+<script src="{{asset('dash/plugins/fullcalendar-interaction/main.min.js')}}"></script>
+<script src="{{asset('dash/plugins/fullcalendar-bootstrap/main.min.js')}}"></script>
+{!! $calendar->script() !!}
 
+
+<script src="{{asset('dash/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('dash/dist/js/adminlte.js')}}"></script>
 </body>
 </html>

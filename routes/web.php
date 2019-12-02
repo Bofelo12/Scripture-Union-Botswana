@@ -13,34 +13,14 @@
 Route::get('/loadMessages',function(){
     return view('messages.home');
 });
-
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/home', function () {
-    return view('welcome');
-});
-
-Route::get('/activities', function () {
-    return view('activities');
-});
-
 Route::get('/contact', function () {
     return view('contact_us');
 });
 
-Route::get('/holidays', function () {
-    return view('holiday&events');
-});
 
-Route::get('/gallery', function () {
-    return view('gallery');
-});
-
-Route::get('/who', function () {
-    return view('who');
-});
 
 Route::get('/messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 Route::get('/messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
@@ -59,6 +39,8 @@ Route::resource('/files', 'FilesController');
 Route::get('/loadEvents', 'EventController@loadEvents')->name('loadEvents');
 Route::get('/addEvent', 'EventController@create')->name('addEvent');
 Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');
+Route::get('/events_calendar','EventController@eventsCalendarFE');
+
 Route::get('/events/edit/{id}', 'EventController@edit')->name('editEvent');
 Route::get('/events', 'EventController@index')->name('eventMenu');
 Route::post('/eventCreate', 'EventController@create');
