@@ -15,6 +15,7 @@
   <link href="{{asset('fe')}}/css/responsive.css" rel="stylesheet">
   <link href="{{asset('fe')}}/css/box-shadows.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('fe')}}/js/stt/lib/css/ap-scroll-top.css">
+  <link rel="stylesheet" href="{{asset('js/dd/dist/min/jquery.sweet-dropdown.min.css')}}">
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -31,6 +32,43 @@
   /.preloader-->
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
   
+  <header id="home" style="background: white">
+    
+    <div class="main-nav">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <h1><img class="img-responsive" src="{{asset('fe')}}/images/logo.png" alt="logo"></h1>
+          </a>                    
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">                 
+            <li class="scroll active"><a href="#home">Home</a></li>
+            <li data-dropdown="#basic"><a href="#">Holidays & Events <span class="fa fa-chevron-down" style="color:white"></span></a></li>
+              <div class="dropdown-menu dropdown-anchor-top-left" id="basic" style="width:250px">                
+                <ul>
+                  <li><a href="#">Holidays & Events</a></li>
+                  <li><a href="#">Camps</a></li>                  
+                  <li><a href="#">Events Calendar</a></li>
+                </ul>
+              </div>
+            <li class=""><a href="holidays.html">Who we are</a></li>           
+            <li class=""><a href="holidays.html">Gallery</a></li>
+            <li class=""><a href="{{url('/contact')}}">Contact Us</a></li>
+            <li class="donate"><a href="holidays.html">Donate</a></li>            
+            
+            
+            </ul>
+        </div>
+      </div>
+    </div><!--/#main-nav-->
+  </header><!--/#home-->
   <!-- header above-->
 
   <section id="contact">
@@ -102,9 +140,9 @@
     // Setup plugin with default settings
     $(document).ready(function() {
     
-      $('footer').footerReveal(
+    /*  $('footer').footerReveal(
         { shadow: true, zIndex: -101 }
-      );
+      );*/
 
       $('#camping, #holiday,#scg, #training,#lifeskill, #volunteering, #whoweare').popup({
         closebutton:false,
@@ -138,6 +176,7 @@
   <script type="text/javascript" src="{{asset('fe')}}/js/lightbox.min.js"></script>
   <script type="text/javascript" src="{{asset('fe')}}/js/main.js"></script>
   <script src="{{asset('fe')}}/js/stt/lib/js/ap-scroll-top.min.js"></script>
+  <script src="{{asset('js/dd/dist/min/jquery.sweet-dropdown.min.js')}}"></script>
 
   
 </body>
