@@ -169,7 +169,7 @@
           <div class="col-sm-8">
             <textarea class="form-control" name="message" id="" rows="3"></textarea>
           </div>
-        </div>
+        </div>z
 
         <button type="submit" class="btn btn-primary">Send</button>
 
