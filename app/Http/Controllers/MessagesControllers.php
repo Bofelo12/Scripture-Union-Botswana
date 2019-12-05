@@ -24,9 +24,10 @@ class MessagesController extends Controller
      */
     public function index()
     {
+        $users = User::where('id', '!=', Auth::id())->get();
         $currentUserId = Auth::user()->id;
         $threads = Thread::forUser(Auth::id())->latest('updated_at')->get();
-        return view('messenger.index', compact('threads', 'currentUserId'));
+        return view('messenger.index', compact('threads', 'currentUserId','users'));
     }
 
     /**

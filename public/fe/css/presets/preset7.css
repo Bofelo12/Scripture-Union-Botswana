@@ -1,0 +1,125 @@
+a,
+#twitter-carousel .item span, 
+#footer .footer-bottom, 
+#single-portfolio .close-folio-item:hover, 
+.single-table.featured .btn.btn-primary, 
+.contact-info ul li a:hover, 
+#footer .footer-bottom a  {
+  color: 
+	#39454c;
+}
+#home-slider .caption h1 span{color:#dd2f62}
+
+.donate{background-color:#dd2f62}
+.joinus{border: #dd2f62 thin solid;color:#dd2f62;background: none;padding: 5px}
+.suf , .joinus:hover{color:#dd2f62}
+.btn.btn-primary:hover,
+.btn-submit:hover {
+  background-color:#39454c;
+}
+
+
+/*images*/
+.scg{content:url('../../images/about/edited/scg.png');}
+
+.scg:hover{
+	content:url('../../images/about/edited/bw/scg.png');
+  }
+
+a:hover, a:focus {
+	color: #39454c;
+}
+
+.main-nav, 
+.service-icon, 
+.progress-bar.progress-bar-primary, 
+.single-table.featured, 
+.btn.btn-primary, 
+.twitter-icon .fa-twitter, 
+.twitter-left-control:hover, .twitter-right-control:hover, 
+.post-icon, 
+.entry-header .date:after, 
+.btn-loadmore:hover, 
+.btn-submit,
+#footer, 
+.folio-overview a:hover {
+  background-color:#39454c;
+}
+
+.twitter-left-control:hover, 
+.twitter-right-control:hover, 
+.btn-loadmore:hover  {
+	border: 1px solid #39454c;
+}
+
+.caption .btn-start:hover, 
+.left-control:hover, 
+.right-control:hover {
+	border-color: #dd2f62;
+	background: none;
+	color: #dd2f62;
+}
+#site-content {
+	min-height: 100%;
+	min-height: 100vh;
+	padding-top: 65px;
+	position: relative;
+	z-index: 1;
+
+	-webkit-box-shadow: #000 0 7px 35px 0;
+	-moz-box-shadow: #000 0 7px 35px 0;
+	box-shadow: #000 0 7px 35px 0;
+  
+}
+#site-footer {
+	padding: 25px 0;
+	font-size: 85%;
+	background-color: #2A2A2A;
+	position: fixed;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	
+}
+.donate-btn{background-color:#dd2f62;color:white}
+
+.footer-heading{
+	color:#dd2f62;
+	margin-bottom: 1.25rem;
+	font-weight: 600;
+	font-size: 16px;
+}
+ul.list-unstyled li a {color:white} 
+#JPO {
+	transform: scale(0.8);
+  }
+  .popup_visible #JPO {
+	transform: scale(1);
+  }
+  
+#services{background:white}
+#site-footer {
+	min-height: 20vw;
+	/* DID THIS SO YOU CAN SEE IT AUTOMATICALLY SCALE - SIMULATION RESPONSIVENESS */
+	/* RESIZE THE WINDOW AND THEN SCROLL VERITCALLY AGAIN */
+	background-size: cover;
+	background-position: center;
+	background-image: url('http://dummyimage.com/1500x1500/2A2A2A/FFF.png?text=Footer+Area+(Resize+Me)');
+}
+
+.bShadow
+{
+    box-shadow: rgba(0, 0, 0, 0.25) 0 15px 45px -9px; 
+  
+}
+
+.box-shadow:hover
+{
+    box-shadow: rgba(0, 0, 0, 0.25) 0 15px 45px -9px; 
+  
+}
+
+.twitter-icon .fa-twitter:after {
+	border-color: #39454c transparent transparent;
+}

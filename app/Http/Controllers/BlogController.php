@@ -17,7 +17,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $numPosts = 4;
+        $numPosts = 3;
         $posts = BlogPost::where([
             ['status', '=', 'PUBLISHED'],
         ])->whereDate('published_date', '<=', Carbon::now())

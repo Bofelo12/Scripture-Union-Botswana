@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 use MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
 class EventController extends Controller
@@ -16,8 +18,37 @@ class EventController extends Controller
      */
     public function index()
     {
-
+        $data = Event::all();
+        return DataTables::of($data)
+        ->addColumn("action",function($data){
+            /**
+             * <a href=""    class="btn btn-sm btn-warning">
+                 <span class="hidden-xs hidden-sm">View</span>
+                </a> 
+             */
+            return 
+            '<center>                 
+                <a href="'.route('editEvent',['id'=>$data->id]).'"  class="btn btn-sm btn-primary">
+                <span class="hidden-xs hidden-sm">Edit</span>
+                </a>
+                <a href="#" data-id="'.$data->id.'" class="btn btn-sm btn-danger deleteBtn" data-toggle="modal" data-target="#bulk_delete_modal">
+                 <span class="hidden-xs hidden-sm">Delete</span>
+                </a>                
+            </center>'
+            ;
+        })
+        ->make(true);
     }
+
+    public function loadEvents(){
+        return view('events.index');
+    }
+
+
+    public function gravy()
+{
+    return view('/vendor/voyager/gravy');
+}
     public function eventsCalendar()
     {
        // $event = Event::all()->toArray();
@@ -46,6 +77,35 @@ class EventController extends Controller
         return view('events.events_calendar', compact('calendar'));
     }
 
+    public function eventsCalendarFE()
+    {
+       // $event = Event::all()->toArray();
+       // return view('event.event', compact('event'));
+       $events = [];
+        $data = Event::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $url = "events/edit/".$value->id;
+                $events[] = Calendar::event(
+                    $value->event_name,
+                    false,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date),
+                    null,
+                    // Add color and link on event
+	                [
+	                    'color' => 'seagreen',
+	                    'url' => 'www.view.event.com',
+	                ]
+                );
+            }
+        }
+        $calendar = Calendar::addEvents($events);
+        //print_r($events);
+      // print("hi");
+        return view('events.events_calendarFE', compact('calendar'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -53,7 +113,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event.upload');
+        return view('events.create');
     }
 
     /**
@@ -65,18 +125,21 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'date'    =>  'required',
-            'time'     =>  'required',
+            'title'    =>  'required',
+            'venue'     =>  'required',
+            'startDate'    =>  'required',
+            'endDate'     =>  'required',
         ]);
+        $name = Auth()->user()->name;
         $event = new Event([
-            'event_date'    =>  $request->get('date'),
-            'event_time'     =>  $request->get('time'),
-            'event_venue' => $request->get('venue'),
-            'event_date' => $request->get('date'),
-            'event_name' => $request->get('event_name')    
+            'event_name'    =>  $request->get('title'),
+            'event_venue'     =>  $request->get('venue'),
+            'start_date' => $request->get('startDate'),
+            'end_date' => $request->get('endDate'),
+            'publisher' => $name
         ]);
         $event->save();
-        return redirect()->route("eventMenu")->with('success', "Data added");
+        return redirect()->route("loadEvents")->with('success', "Data added");
     }
 
     /**
@@ -111,19 +174,29 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [ 
-            'start_date'    =>  'required',
-            'end_date'    =>  'required',
-            'location'    =>  'required',
-            'title'     =>  'required'
+        $this->validate($request, [
+            'title'    =>  'required',
+            'venue'     =>  'required',
+            'startDate'    =>  'required',
+            'endDate'     =>  'required',
         ]);
+
+        /*
+         * 'event_name'    =>  $request->get('title'),
+            'event_venue'     =>  $request->get('venue'),
+            'start_date' => $request->get('startDate'),
+            'end_date' => $request->get('endDate'),
+            'publisher' => $name
+        */
+        $name = Auth()->user()->name;
         $event = Event::find($id);
         $event->event_name = $request->get('title');
-        $event->event_venue = $request->get('location');
-        $event->start_date = $request->get('start_date');
-        $event->end_date = $request->get('end_date');
+        $event->event_venue = $request->get('venue');
+        $event->start_date = $request->get('startDate');
+        $event->end_date = $request->get('endDate');
+        $event->publisher = $name;
         $event->save();
-            return redirect()->route('editEvent',['id'=>$id])->with('success', 'Data updated');
+        return redirect()->route("loadEvents")->with('success', "Data added");
     }
 
     /**
@@ -136,5 +209,7 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $event->delete();
+
+        return redirect()->route("loadEvents")->with('success', "Data deleted!");
     }
 }

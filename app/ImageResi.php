@@ -22,7 +22,7 @@ class ImageResize extends Model
     $storage = Storage::disk(config('voyager.storage.disk'));
     // Setup the image URLs
     // - You can add ASSET_URL=http://... to your .env to reference images through a CDN
-    $hostname = env('ASSET_URL', env('APP_URL', 'http://localhost/SUBotswana/public'));
+    $hostname = env('ASSET_URL', env('APP_URL', 'http://localhost/su/public'));
     $urlPrefix = $hostname . '/storage/';
     $diskPath = str_replace($urlPrefix, '', $cachedUrl);
     if (null === $cachedUrl || !Storage::exists($diskPath)) {

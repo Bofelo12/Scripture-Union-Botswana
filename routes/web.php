@@ -13,36 +13,16 @@
 Route::get('/loadMessages',function(){
     return view('messages.home');
 });
-
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/home', function () {
-    return view('welcome');
-});
-
-Route::get('/activities', function () {
-    return view('activities');
-});
-
 Route::get('/contact', function () {
     return view('contact_us');
 });
 Route::post('/contact/send', 'SendEmailController@send');
 
 
-Route::get('/events', function () {
-    return view('holiday&events');
-});
 
-Route::get('/gallery', function () {
-    return view('gallery');
-});
-
-Route::get('/who', function () {
-    return view('who');
-});
 
 Route::get('/messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 Route::get('/messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
@@ -51,16 +31,20 @@ Route::get('/messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesContro
 Route::put('/messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 Route::delete('{id}/destroy', ['as' => 'messages.destroy', 'uses' => 'MessagesController@destroy']);
 
+Route::get('/vendor/voyager/gravy','EventController@gravy');
 Route::get('/blogs', 'BlogController@index');
 Route::get('/blog/{slug}', ['as' => 'blog.show', 'uses' => 'BlogController@show']);
 
 
 Route::resource('/photos', 'PhotoController');
 Route::resource('/files', 'FilesController');
-Route::get('/events', 'EventController@index')->name('events');
+Route::get('/loadEvents', 'EventController@loadEvents')->name('loadEvents');
+Route::get('/addEvent', 'EventController@create')->name('addEvent');
 Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');
+Route::get('/events_calendar','EventController@eventsCalendarFE');
+
 Route::get('/events/edit/{id}', 'EventController@edit')->name('editEvent');
-Route::post('/events', 'EventController@index')->name('eventMenu');
+Route::get('/events', 'EventController@index')->name('eventMenu');
 Route::post('/eventCreate', 'EventController@create');
 Route::resource('/event', 'EventController')->except(
     'index', 'create'

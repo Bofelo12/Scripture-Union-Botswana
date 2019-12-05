@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('voyager::master')
 
 @section('content')
 <h1>Create a new message</h1>

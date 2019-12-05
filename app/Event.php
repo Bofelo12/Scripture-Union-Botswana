@@ -12,7 +12,6 @@ class Event extends Model
         'event_name',
         'event_venue', 
         'start_date',
-        'end_date',
-        'start_time',
-        'end_time'];
+        'end_date',        
+        'publisher'];
 }
