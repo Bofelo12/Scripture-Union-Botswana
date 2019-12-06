@@ -16,6 +16,8 @@
   <link href="{{asset('fe')}}/css/box-shadows.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('fe')}}/js/stt/lib/css/ap-scroll-top.css">
   <link rel="stylesheet" href="{{asset('js/dd/dist/min/jquery.sweet-dropdown.min.css')}}">
+  <link href="{{asset('fe')}}/js/toastr.min.css" rel="stylesheet">
+  
   <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -26,6 +28,11 @@
 </head><!--/head-->
 
 <body>
+
+
+@if($message = Session::get('success'))
+<input type="hidden" id="response" value="{{$message}}">
+@endif 
 
   <!--.preloader
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
@@ -85,7 +92,7 @@
           <div class="row">
             <div class="col-sm-6">
               <form id="main-contact-form" name="contact-form" method="post" action="{{url('contact/send')}}">
-                @csrf
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="col-sm-6">
                     <div class="form-group">
@@ -206,6 +213,31 @@
     
     
 
+if($('#response').length){
+  console.log("value is"+$('#response').val());
+  toastr["success"]($('#response').val());
+  toastr.options = null;
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": false,
+  "positionClass": "toast-bottom-left",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+  //toastr.success();
+  console.log("set");
+}
+  
 
       //$('#standalone').popup();
 
@@ -230,7 +262,7 @@
   <script type="text/javascript" src="{{asset('fe')}}/js/main.js"></script>
   <script src="{{asset('fe')}}/js/stt/lib/js/ap-scroll-top.min.js"></script>
   <script src="{{asset('js/dd/dist/min/jquery.sweet-dropdown.min.js')}}"></script>
-
+<script src="{{asset('fe')}}/js/toastr.min.js"></script>
   
 </body>
 </html>

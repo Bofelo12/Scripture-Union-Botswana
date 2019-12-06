@@ -13,20 +13,20 @@ class SendEmailController extends Controller
      $this->validate($request, [
       'name'     =>  'required',
       'email'  =>  'required|email',
-      'message' =>  'required'
+      'message' =>  'required',
+      'cell' =>  'required'
      ]);
 
        
         $data = array(
-            'name'      =>  $request->name,
-            'surname'   => $request->surname,
+            'name'      =>  $request->name,          
             'message'   =>   $request->message,
             'email' => $request->email,
-            'tel'   => $request->contact
+            'tel'   => $request->cell
         );
 
      Mail::to('scriptureunionbotswana@gmail.com')->send(new SendMail($data));
-     return back()->with('success', 'Thanks for contacting us!');
+     return redirect()->route('contact')->with('success', 'Email sent, thanks for contacting us!');
 
     }
 }

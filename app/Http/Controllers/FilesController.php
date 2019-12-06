@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Files;
 use Illuminate\Http\Request;
+use App\Http\Requests\UploadFileRequest;
 
 
 class FilesController extends Controller
@@ -36,7 +37,7 @@ class FilesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UploadFileRequest $request)
     {
         $dt = now();
         foreach ($request->file('doc.*') as $key => $file) {

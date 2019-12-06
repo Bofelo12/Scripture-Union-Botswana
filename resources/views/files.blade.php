@@ -24,15 +24,7 @@
         <input type="file" class="form-control" name="doc[]" required>
     </div>
 
-    @if ($errors->has('doc.1'))
-        <div class="alert alert-danger" role="alert">
-            {{ $errors->first('doc.1') }}
-        </div>
-        @endif
-    <div class="form-group">
-        <label for="doc">Photo:</label>
-        <input type="file" class="form-control" name="doc[]">
-    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
@@ -40,6 +32,9 @@
     <div class="card-columns">
     @foreach($docs as $doc)
         <div class="card" style="width: 20rem;">
+            <?php $sdoc="public"."".$doc->getUrlPath();
+                    print($sdoc->getOriginalExtension());
+            ?>
             <img class="card-img-top" src="{{asset($doc->getUrlPath()) }}" alt="Card image cap">
         </div>
     @endforeach

@@ -17,7 +17,7 @@ Route::get('/','BlogController@loadWelcome');
 
 Route::get('/contact', function () {
     return view('contact_us');
-});
+})->name('contact');
 Route::post('/contact/send', 'SendEmailController@send');
 
 
