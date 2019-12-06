@@ -10,10 +10,10 @@
         <input type="text" class="form-control" name="name">
     </div>
     @if ($errors->has('doc.0'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ $errors->first('doc.0') }}
-                        </div>
-     @endif
+    <div class="alert alert-danger" role="alert">
+        {{ $errors->first('doc.0') }}
+    </div>
+    @endif
     <!--if ($errors->has('photo'))
         <div class="alert alert-danger" role="alert">
             { $errors->first('photo') }
@@ -30,14 +30,31 @@
 
 <div class="p-2" style="width: 80%;">
     <div class="card-columns">
-    @foreach($docs as $doc)
+        @foreach($docs as $doc)
         <div class="card" style="width: 20rem;">
             <?php $sdoc="public"."".$doc->getUrlPath();
-                    print($sdoc->getOriginalExtension());
+                   $extension = pathinfo($sdoc, PATHINFO_EXTENSION);
             ?>
-            <img class="card-img-top" src="{{asset($doc->getUrlPath()) }}" alt="Card image cap">
+            @if ($extension == 'docx' || $extension == 'doc')
+            <a href="{{asset($doc->getUrlPath()) }}">
+                <img src="{{asset('img/office.ico')}}" alt="microsoft icon"></a>
+                    <h4>{{$doc->name}}</h4>
+            @elseif ($extension == 'xlsx' || $extension == "xls")
+            <a href="{{asset($doc->getUrlPath()) }}">
+                <img src="{{asset('img/excel.ico')}}" alt="microsoft icon"></a>
+                <h4>{{$doc->name}}</h4>
+            @elseif ($extension == "pdf")
+            <a href="{{asset($doc->getUrlPath()) }}">
+                <img src="{{asset('img/pdf.ico')}}" alt="microsoft icon"></a>
+                <h4>{{$doc->name}}</h4>
+
+            @elseif ($extension == "ppt")
+            <a href="{{asset($doc->getUrlPath()) }}">
+                <img src="{{asset('img/ppt.ico')}}" alt="microsoft icon"></a>
+                <h4>{{$doc->name}}</h4>
+            @endif
         </div>
-    @endforeach
+        @endforeach
     </div>
 </div>
 @endsection
