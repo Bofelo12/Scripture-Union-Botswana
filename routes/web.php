@@ -18,6 +18,8 @@ Route::get('/','BlogController@loadWelcome');
 Route::get('/contact', function () {
     return view('contact_us');
 });
+Route::post('/contact/send', 'SendEmailController@send');
+
 
 Route::get('/gallery','GalleryController@index');
 Route::get('/gShow','GalleryController@showGallery')->name('gShow');
