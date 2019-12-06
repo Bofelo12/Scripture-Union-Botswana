@@ -38,7 +38,11 @@ Route::get('/blog/{slug}', ['as' => 'blog.show', 'uses' => 'BlogController@show'
 
 
 Route::resource('/photos', 'PhotoController');
-Route::resource('/files', 'FilesController');
+
+Route::get('/filesIndex', 'FilesController@index')->name('loadFiles');
+Route::resource('/files', 'FilesController')->except(
+    'index', 'create'
+);
 Route::get('/loadEvents', 'EventController@loadEvents')->name('loadEvents');
 Route::get('/addEvent', 'EventController@create')->name('addEvent');
 Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');

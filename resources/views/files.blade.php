@@ -33,7 +33,7 @@
     @foreach($docs as $doc)
         <div class="card" style="width: 20rem;">
             <?php $sdoc="public"."".$doc->getUrlPath();
-                    print($sdoc->getOriginalExtension());
+                    print($sdoc->getCleiOriginalExtension());
             ?>
             <img class="card-img-top" src="{{asset($doc->getUrlPath()) }}" alt="Card image cap">
         </div>

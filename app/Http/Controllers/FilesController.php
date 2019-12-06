@@ -18,7 +18,7 @@ class FilesController extends Controller
     {
         $docs = Files::all();
       
-        return view('files', compact('docs'));
+        return view('file_upload.index', compact('docs'));
     }
 
     /**
@@ -55,7 +55,7 @@ class FilesController extends Controller
             $file->save();       
         }
 
-        return view('success');
+        return redirect()->route('loadFiles')->with('success','file uploaded successfully');
     }
 
     /**
