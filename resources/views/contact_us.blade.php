@@ -43,68 +43,67 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{{url('/')}}">
             <h1><img class="img-responsive" src="{{asset('fe')}}/images/logo.png" alt="logo"></h1>
           </a>                    
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">                 
-            <li class="scroll active"><a href="#home">Home</a></li>
+            <li class="scroll"><a href="{{url('/')}}">Home</a></li>
             <li data-dropdown="#basic"><a href="#">Holidays & Events <span class="fa fa-chevron-down" style="color:white"></span></a></li>
               <div class="dropdown-menu dropdown-anchor-top-left" id="basic" style="width:250px">                
                 <ul>
-                  <li><a href="#">Holidays & Events</a></li>
-                  <li><a href="#">Camps</a></li>                  
-                  <li><a href="#">Events Calendar</a></li>
+                  <li><a href="{{url('/eventsIndex')}}">Holidays & Events</a></li>                               
+                  <li><a href="{{url('/events_calendar')}}">Events Calendar</a></li>
                 </ul>
               </div>
-            <li class=""><a href="holidays.html">Who we are</a></li>           
-            <li class=""><a href="holidays.html">Gallery</a></li>
-            <li class=""><a href="{{url('/contact')}}">Contact Us</a></li>
-            <li class="donate"><a href="holidays.html">Donate</a></li>            
-            
-            
-            </ul>
+            <li class=""><a href="{{url('/blogs')}}">Blog</a></li>           
+            <li class=""><a href="{{url('/gallery')}}">Gallery</a></li>
+            <li class="active"><a href="{{url('/contact')}}">Contact Us</a></li>
+            <li class="donate"><a href="{{url('/donate')}}">Donate</a></li>            
+           </ul>
         </div>
       </div>
     </div><!--/#main-nav-->
+
+
+   
   </header><!--/#home-->
   <!-- header above-->
 
-  <section id="contact">
-    <div id="contact-us" class="parallax">
+  
       <div class="container">
         <div class="row">
-          <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+          <div class="heading text-center col-sm-8 col-sm-offset-2">
             <h2>Contact Us</h2>
             <p>
                 Feel free to send us a message.
             </p>
           </div>
         </div>
-        <div class="contact-form wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="contact-form" data-wow-duration="1000ms" data-wow-delay="600ms">
           <div class="row">
             <div class="col-sm-6">
               <form id="main-contact-form" name="contact-form" method="post" action="#">
                 <div class="row  wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <input type="text" name="name" class="form-control" placeholder="Name" required="required">
+                      <input type="text" name="name" class="form-control" placeholder="Name" required="required" style="border:#dddddd solid thin">
                     </div>
                   </div>
                   <div class="col-sm-6">
                       <div class="form-group">
-                          <input type="number" name="subject" class="form-control" placeholder="Cell No." required="required">
+                          <input type="number" name="cell" class="form-control" placeholder="Cell No." required="required" style="border:#dddddd solid thin">
                         </div>
                   </div>
                 </div>
                 
 
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email Address" required="required">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required="required" style="border:#dddddd solid thin">
                   </div>
                 <div class="form-group">
-                  <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required"></textarea>
+                  <textarea name="message" id="message" class="form-control" rows="4" placeholder="Enter your message" required="required" style="border:#dddddd solid thin"></textarea>
                 </div>                        
                 <div class="form-group">
                   <button type="submit" class="btn-submit">Send Now</button>
@@ -113,52 +112,105 @@
             </div>
             <div class="col-sm-6">
               <div class="contact-info wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
-                <p>Looking for your kids to have a great holiday and find out more about faith? Our camps have everything you need!</p>
-                <ul class="address">
-                  <li><i class="fa fa-map-marker"></i> <span> Address:</span>Gaborone, Botswana</li>
-                  <li><i class="fa fa-phone"></i> <span> Phone:</span> +267 390 08 98 </li>
-                  <li><i class="fa fa-envelope"></i> <span> Email:</span><a href="mailto:tmdsaint@gmail.com"> tmdsaint@gmail.com</a></li>
-                  <li><i class="fa fa-globe"></i> <span> Website:</span> <a href="https://www.subotswana.org.bw">www.subotswana.org.bw</a></li>
-                </ul>
-              </div>                            
+                <div id="google-map" class="wow fadeIn" data-latitude="-24.6413876" data-longitude="25.9274958" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+               </div>                            
             </div>
           </div>
         </div>
       </div>
-    </div>        
-  </section><!--/#contact-->  
+    <!--/#contact-->  
 
   
-   
+    <footer id="footer">
+      <div class="footer-top">      
+          <div class="container">
+              <div class="row">
+                <div class="col-lg-3 mb-5 mb-lg-0 text-center">
+                    <div class="footer-logo">
+                        <a href="index.html"><img class="img-responsive" src="{{asset('fe')}}/images/logo5.png" alt=""></a>
+                      </div>
+                      <ul class="list-unstyled">
+                          <p>
+                              SU Botswana is a member of the worldwide movement of Scripture Union.
+                          </p>
+                      <li> <a href="#" class="footer-link btn btn-default btn-block btn-flat donate-btn">Donate</a></li>
+                
+                </div>
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                  <h5 class="footer-heading">Contacts</h5>
+                  <ul class="list-unstyled">
+                    <li><strong>Postal Add.</strong> : P O Box 444,Gaborone</li>
+                    <li><strong>Tel.</strong> : +267 390 08 98</li>
+                    <li><strong>Fax.</strong> : +267 391 27 45</li>
+                   </ul>
+                </div>
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                  <h5 class="footer-heading">Resources</h5>
+                  <ul class="list-unstyled">
+                    <li> <a href="#" class="footer-link">Prayer Diary</a></li>
+                    <li> <a href="#" class="footer-link">Newsletter</a></li>
+                    <li> <a href="#" class="footer-link whoweare_open">About Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3">
+                  <h5 class="footer-heading">Extra Links</h5>
+                  <ul class="list-unstyled">
+                    <li> <a href="https://scriptureunion.global/" class="footer-link">SU Global</a></li>
+                    <li> <a href="https://su.org.za/" class="footer-link">SA South Africa</a></li>
+                     <li> <a href="https://www.sumag.co.za/" class="footer-link">SU Mag South Afriva<a></li>
+                      <li> <a href="http://www.wordspace.co.za/" class="footer-link">Wordspace</a></li>
+                      <li> <a href="https://www.subooks.co.za/" class="footer-link">SU Books</a></li>
+                      <li> <a href="#" class="footer-link">Job Vacancies</a></li>
+                      <li> <a href="{{url('/admin')}}" class="footer-link">Member Login</a></li>                   
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="container text-center">        
+          
+          <div class="social-icons">
+            <h5 style="color:white">Connect with us.</h5>
+            <ul>
+              <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li> 
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="facebook" href="https://www.facebook.com/SUBotswana/"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p>&copy; 2019 Scripture Union Botswana</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="pull-right">Designed by <a href="#">Man Dogs</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </footer>
 
   <script type="text/javascript" src="{{asset('fe')}}/js/jquery.js"></script>
-  <script src="{{asset('fe')}}/js/footer-reveal.min.js"></script>
-  <script type="text/javascript" src="{{asset('fe')}}/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="{{asset('fe')}}/js/bootstrap.min.js"></script>
    <script src="{{asset('fe')}}/js/jquery.popupoverlay.js">
   </script>
   <script type="text/javascript">
     // Setup plugin with default settings
     $(document).ready(function() {
     
-    /*  $('footer').footerReveal(
-        { shadow: true, zIndex: -101 }
-      );*/
+    
 
-      $('#camping, #holiday,#scg, #training,#lifeskill, #volunteering, #whoweare').popup({
-        closebutton:false,
-        escape: true,
-  blur: true,
-  color: 'white',
-  opacity: 0.95,
-  transition: '0.3s',
-  scrolllock: true
-});
 
       //$('#standalone').popup();
 
 
 
-        $.apScrollTop({
+      $.apScrollTop({
             'onInit': function(evt) {
                 console.log('apScrollTop: init');
             },
@@ -181,3 +233,4 @@
   
 </body>
 </html>
+

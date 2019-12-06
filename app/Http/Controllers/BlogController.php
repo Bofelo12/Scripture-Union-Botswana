@@ -15,6 +15,19 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function loadWelcome()
+    {
+        $numPosts = 3;
+        $posts = BlogPost::where([
+            ['status', '=', 'PUBLISHED'],
+        ])->whereDate('published_date', '<=', Carbon::now())
+            ->limit($numPosts)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $user = new User();
+        return view('welcome', compact('posts', 'user'));
+    }
+
     public function index()
     {
         $numPosts = 3;

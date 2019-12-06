@@ -59,33 +59,64 @@
     </div><!--/#main-nav-->
   </header><!--/#home-->
   <!-- header above-->
+  <div class="container-fluid" style="background-color:#63686b">
+      <div class="row"></div><br><br>   
+      <div class="row">   
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="row">               
+                  <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
+                  <div class="text-center">  
+                    <h2 class="title3 " style="color:white">
+                          {{$post->title}}
+                      </h2>
+                      <h4  style="color:white">{{$post->meta_description}}</h4>
+                    </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col-lg-3"></div>                        
+      </div>
+      <div class="row"></div><br><br>  
+    </div>
+
+ 
 
 
-  
   <div class="container-fluid" style="background:white                  ">     
       <div class="row">
-          <div class="col-lg-1"></div>
-          <div class="col-lg-10">
-              <h1 class="text-center">{{$post->title}}<h1>
-      <h3 class="text-center"> &nbsp;{{$post->meta_description}}</h3>
-      <h6>by {{$user->getUser($post->author_id)}}</h6>   
-      <h4>{{$post->created_at->format('jS M. Y')}}<h4>
-    <img class="img-responsive" src="{{imageUrl($post->image)}}" alt="Blog pic">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8">
+             
+            <div class="container-fluid">
+              <br>
+            <h4><i class="fa fa-user" style="margin-right:5px"></i><strong style="color:dodgerblue"> {{$user->getUser($post->author_id)}}</strong></h4>   
+            <h4> <i class="fa fa-calendar" style="margin-right:7px"></i>{{$post->created_at->format('jS M. Y')}}<h4>
+          <br>
+            
+            <div class="col-lg-12">
+                <img class="img-responsive" src="{{imageUrl($post->image,1000,350)}}" alt="Blog pic">
+                <br>{!! $post->body !!} <br>
+              </div>            
+         
 
-        <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    {!! $post->body !!}
-                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                      
+                  </div>            
+                <div class="col-lg-1"></div>
             </div>
-        </div>            
+        </div>
+                   
           </div>
-          <div class="col-lg-1"></div>
+          <div class="col-lg-2">
+            
+          </div>
       </div>
   </div>
   
   
-
 
   <footer id="footer">
     <div class="footer-top">      

@@ -43,7 +43,9 @@ class EventController extends Controller
     public function loadEvents(){
         return view('events.index');
     }
-
+    public function eventsFE(){
+        return view('events');
+    }
 
     public function gravy()
 {

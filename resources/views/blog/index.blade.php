@@ -24,13 +24,14 @@
   <link rel="shortcut icon" href="{{asset('fe')}}/images/favicon.ico">
 </head><!--/head-->
 
-<body>
+<body >
 
   <!--.preloader
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
   /.preloader-->
   <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
-  <header id="home" style="background: white">  
+  
+  <header id="home" style="background: white">
     <div class="main-nav">
       <div class="container">
         <div class="navbar-header">
@@ -58,43 +59,65 @@
       </div>
     </div><!--/#main-nav-->
   </header><!--/#home-->
-  <!-- header above-->
 
 
-  
-  <div class="container">     
-              @empty($posts)
-                  <p>There are currently no posts.</p>
-              @else
-           <div class="row">                     
-                  @foreach($posts as $post)                            
-                      <div class="col-lg-4">
-                          <div class="card">
-                              <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                                  <img src="{{imageUrl($post->image, 260, 175) }}">
-                              </a>
-                              <div class="card-section">
-                                  <span class="" style="color:black">
-                                      {{ $post->created_at->format('d/m/Y')}}
-                                  </span>
-                                  <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
-                                      <h4>{{ $post->title  }}</h4>
-                                          <h6>by {{$user->getUser($post->author_id)}}</h6>   
-                                  </a>
-                                  @if ($post->excerpt)
-                                      <p>{{ Illuminate\Support\Str::limit($post->excerpt, 50, '&hellip;') }}</p>
-                                  @endif
-                              </div>
-                          </div>
-                      </div>                          
-                  @endforeach
+    <!--blog-->
+    <section id="blog" >
+      <div class="container">
+        <div class="row">
+          <div class="heading text-center col-lg-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+            <h2>What's Up?</h2>
+           </div>
+        </div>
+
+
+        <div class="blog-posts" >          
+                 <div class="container-fluid">
+                    <div class="row">
+    @empty($posts)
+            <p>There are currently no posts.</p>
+        @else
+    <div class="row">
+        @foreach($posts as $post)  
+        <div class="col-sm-6 col-xs-12 col-lg-4 col-md-4 wow fadeInUp box-shadow" data-wow-duration="1000ms" data-wow-delay="400ms">
+            <div class="post-thumb">
+              <a href="{{ route('blog.show', ['slug' => $post->slug]) }}">
+                  <img class="img-responsive" src="{{imageUrl($post->image) }}">
+              </a>
+              <!--<<div class="post-meta">
+                <span><i class="fa fa-comments-o"></i> 3 Comments</span>
+                <span><i class="fa fa-heart"></i> 0 Likes</span> 
+              </div>
+              div class="post-icon">
+                <i class="fa fa-pencil"></i>
+              </div>-->
             </div>
-              @endempty
-  </div>
+            <div class="entry-header">
+              <h3><a href="{{ route('blog.show', ['slug' => $post->slug]) }}">{{ $post->title  }}</a></h3>
+              <span class="date">{{ $post->created_at->format('d/m/Y')}}</span>
+              <span class="cetagory">By <strong><i class="fa fa-user"></i> {{$user->getUser($post->author_id)}}</strong></span>
+            </div>
+            <div class="entry-content">
+                @if ($post->excerpt)
+                <p>{{ Illuminate\Support\Str::limit($post->excerpt, 50, '&hellip;') }}</p>
+                @endif
+            </div>
+          </div>
+          @endforeach
+    </div>
+    @endempty
+  </div>       
   
+          </div>
+         <!--  <div class="load-more wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
+           <a href="#" class="btn-loadmore"><i class="fa fa-repeat"></i> Load More</a>
+           </div>       -->         
+        </div>
+      </div>
+      
+    </section>
   
-
-
+ 
   <footer id="footer">
     <div class="footer-top">      
         <div class="container">
@@ -178,9 +201,9 @@
     // Setup plugin with default settings
     $(document).ready(function() {
     
-      $('footer').footerReveal(
+    /*  $('footer').footerReveal(
         { shadow: true, zIndex: -101 }
-      );
+      );*/
 
       $('#camping, #holiday,#scg, #training,#lifeskill, #volunteering, #whoweare').popup({
         closebutton:false,

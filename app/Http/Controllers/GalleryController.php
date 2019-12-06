@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -13,8 +14,22 @@ class GalleryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {    
+         // $photos = Storage::files('public/gallery');     
+          $directories =  Storage::directories('public/gallery');
+
+         $gallery = array();
+         foreach($directories as $directory){
+            array_push($gallery,["name"=>basename($directory),"directory"=>$directory]);
+         }
+         //print_r($gallery);
+         return view("gallery.index", compact('gallery'));     
+    }
+
+    public function showGallery(Request $request)
     {
-        //
+        $directory=$request->get('directory');
+        return view('gallery.show',compact('directory'));
     }
 
     /**

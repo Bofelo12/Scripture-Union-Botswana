@@ -13,14 +13,15 @@
 Route::get('/loadMessages',function(){
     return view('messages.home');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','BlogController@loadWelcome');
+
 Route::get('/contact', function () {
     return view('contact_us');
 });
 
-
+Route::get('/gallery','GalleryController@index');
+Route::get('/gShow','GalleryController@showGallery')->name('gShow');
+Route::post('/gShow','GalleryController@showGallery')->name('gShow');
 
 Route::get('/messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 Route::get('/messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
@@ -40,6 +41,8 @@ Route::get('/loadEvents', 'EventController@loadEvents')->name('loadEvents');
 Route::get('/addEvent', 'EventController@create')->name('addEvent');
 Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');
 Route::get('/events_calendar','EventController@eventsCalendarFE');
+Route::get('/eventsIndex','EventController@eventsFE');
+
 
 Route::get('/events/edit/{id}', 'EventController@edit')->name('editEvent');
 Route::get('/events', 'EventController@index')->name('eventMenu');
