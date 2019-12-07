@@ -40,7 +40,15 @@
             <p class="animated fadeInRightBig">bringing transformation to the lives of young people, enabled by God’s Spirit</p>
             <a  class="btn btn-start animated fadeInUpBig" href="">Donate</a>
             <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Start now</a>
-            <a  class="btn btn-start animated fadeInUpBig" href="">Resources</a>
+            <?php 
+            if(!empty($dp))
+            {
+              ?>
+              <a  class="btn btn-start animated fadeInUpBig" target="_blank"  href="{{asset($dp->getUrlPath()) }}">
+                  <i class="fa fa-cloud-download"></i>  Prayer Diary
+                </a>
+              <?php } ?>
+     
           
           </div>
         </div>
@@ -1033,7 +1041,14 @@ state with respect to Holiday Clubs:
                 <h5 class="footer-heading">Resources</h5>
                 <ul class="list-unstyled">
                   <li> <a href="#" class="footer-link">Prayer Diary</a></li>
-                  <li> <a href="#" class="footer-link">Newsletter</a></li>
+                  
+                  <?php 
+                  if(!empty($nl))
+                  {
+                    ?>
+                      <li> <a href="{{asset($nl->getUrlPath()) }}" target="_blank" class="footer-link">Newsletter</a></li>
+              <?php } ?>
+                  
                   <li> <a href="#" class="footer-link whoweare_open">About Us</a></li>
                 </ul>
               </div>

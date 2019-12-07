@@ -21,6 +21,17 @@ class FilesController extends Controller
         return view('file_upload.index', compact('docs'));
     }
 
+    public function getRecentNewsletter()
+    {}
+
+    public function getPrayerDiary()
+    {
+        $dp = Files::all()->firstWhere('category','prayer_diary');
+        $dp = Files::all()->firstWhere('category','prayer_diary');
+        $assPath ="public"."".$dp->getUrlPath();  
+        print_r($assPath);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,6 +63,7 @@ class FilesController extends Controller
             $file = new Files();
             $file->name = $request->get('name');
             $file->path = $path;
+            $file->category = $request->get('category');
             $file->save();       
         }
 

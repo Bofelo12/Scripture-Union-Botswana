@@ -31,6 +31,7 @@
                     <input type="text" class="form-control" name="name">
                 </div>
                 
+                
                 <!--if ($errors->has('photo'))
                     <div class="alert alert-danger" role="alert">
                         { $errors->first('photo') }
@@ -40,6 +41,16 @@
                     <label for="doc">File</label>
                     <input type="file" class="form-control" name="doc[]" required>
                 </div>
+
+
+                <div class="form-group">
+                        <label for="name">File Category</label>
+                    <select name="category" class="form-control" id="category">
+                        <option value="prayer_diary">Prayer Diary</option>
+                        <option value="newsletter">Newsletter</option>
+                        <option value="report">Report</option>
+                    </select> 
+                    </div>
             
             
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -52,23 +63,50 @@
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="voyager-notifications"></div>
-  <div class="alerts"></div>
-<h1>Member uploading files</h1>
 
-
-<div class="p-2" style="width: 80%;">
-    <div class="card-columns">
-    @foreach($docs as $doc)
-        <div class="card" style="width: 20rem;">
-            <?php $sdoc="public"."".$doc->getUrlPath();
-                 //   print($sdoc->getClientOriginalExtension());
-            ?>
-            <img class="card-img-top" src="{{asset($doc->getUrlPath()) }}" alt="Card image cap">
-        </div>
-    @endforeach
+<div></div>
+<div class="container">
+    
+    <div class="row" style=";border:#dddddd solid thin">
+            <br> 
+           
+            
+        
+                @foreach($docs as $doc)  
+                <div class="col-lg-1">          
+                <?php $sdoc="public"."".$doc->getUrlPath();
+                      //  print($sdoc->getCleiOriginalExtension());
+                       $extension = pathinfo($sdoc, PATHINFO_EXTENSION);
+              
+                    // print_r($doc->category);
+               
+                ?>
+                @if ($extension == 'docx' || $extension == 'doc')
+                <a href="{{asset($doc->getUrlPath()) }}">
+                    <img src="{{asset('img/office.ico')}}" class="img-responsive"alt="microsoft icon"></a>
+                        <p class="text-center">{{$doc->name}}</p>
+                @elseif ($extension == 'xlsx' || $extension == "xls")
+                <a href="{{asset($doc->getUrlPath()) }}">
+                    <img src="{{asset('img/excel.ico')}}"class="img-responsive" alt="microsoft icon"></a>
+                    <p class="text-center">{{$doc->name}}</p>
+                @elseif ($extension == "pdf")
+                <a href="{{asset($doc->getUrlPath()) }}">
+                    <img src="{{asset('img/pdf.ico')}}" class="img-responsive" alt="microsoft icon"></a>
+                    <p class="text-center">{{$doc->name}}</p>
+    
+                @elseif ($extension == "ppt")
+                <a href="{{asset($doc->getUrlPath()) }}">
+                    <img src="{{asset('img/ppt.ico')}}" class="img-responsive" alt="microsoft icon"></a>
+                    <<p class="text-center">{{$doc->name}}</p>
+                @endif  
+            </div>         
+            @endforeach
+         
     </div>
+    
 </div>
+            
+     
 @endsection
 
 

@@ -44,7 +44,39 @@ class EventController extends Controller
         return view('events.index');
     }
     public function eventsFE(){
-        return view('events');
+        //nb get by upcoming status
+        $data = Event::all();
+
+        $event = array();
+        $events = array();
+        foreach($data as $i){
+          //  $y =$i->start_date->format('Y');
+          $s = new \DateTime($i->start_date);
+          $month = $s->format('M');
+          $day = $s->format('d');
+          $year = $s->format('Y');
+          $t = $s->format('H:i');
+          if($t >= 12){
+            $time = $t." PM";
+            $event['time'] = $time;
+          }
+          else{
+            $time = $t." AM";
+            $event['time'] = $time;
+          }          
+          $name = $i->event_name;
+          $location = $i->event_venue;
+
+          $event['day']  = $day;
+          $event['month'] = $month;
+          $event['year'] = $year;
+          $event['location'] = $location;          
+          $event['name'] = $name;
+  
+          array_push($events,$event);
+        }
+       //     print_r($events);
+     return view('events.events',compact('events'));
     }
 
     public function gravy()
@@ -77,6 +109,26 @@ class EventController extends Controller
         $calendar = Calendar::addEvents($events);
         //print_r($events);
         return view('events.events_calendar', compact('calendar'));
+    }
+
+    public function showEvent($id){
+        $data = Event::find($id);
+        //print_r($data);
+        $date = array();
+        $d  = new \DateTime($data->start_date);
+        $date['year'] = $d->format('Y');
+        $date['day'] = $d->format('d');
+        $date['hours'] = $d->format('H');
+        $date['month'] = $d->format('m');
+        $date['mins'] = $d->format('i');
+
+
+       $event = array();
+       $event['name'] = $data->event_name;
+       $event['author'] = $data->publisher;
+       $event['venue'] = $data->event_venue;
+       return view("events.show",compact('date','event'));
+
     }
 
     public function eventsCalendarFE()

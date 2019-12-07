@@ -7,6 +7,8 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Pvtl\VoyagerBlog\BlogPost;
+use App\Files;
+
 
 class BlogController extends Controller
 {
@@ -17,6 +19,8 @@ class BlogController extends Controller
      */
     public function loadWelcome()
     {
+
+
         $numPosts = 3;
         $posts = BlogPost::where([
             ['status', '=', 'PUBLISHED'],
@@ -25,7 +29,11 @@ class BlogController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
         $user = new User();
-        return view('welcome', compact('posts', 'user'));
+        $dp = Files::all()->firstWhere('category','prayer_diary');
+        $nl = Files::all()->firstWhere('category','newsletter');
+
+        
+        return view('welcome', compact('posts', 'user','dp','nl'));
     }
 
     public function index()

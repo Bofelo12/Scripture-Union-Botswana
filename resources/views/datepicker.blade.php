@@ -1,4 +1,10 @@
 <input type="hidden" value="{{date('Y-m-d H:i')}}" id="now">
+<input type="hidden" value="<?php
+$year = date('Y');
+$ny = $year+1;
+$append = "-".date('m-d H:i');
+print($ny.$append);
+?>" id="next">
 <input type="hidden" value="{{url('event')}}" id="deleteUrl">
 @if($message = Session::get('success'))
 <input type="hidden" id="success-response" value="{{$message}}">
@@ -25,18 +31,24 @@ $('body').on('click','.deleteBtn',function(){
 //console.log("this is url"+$('#deleteId').attr('action'));
 });
 
-
+/*
 if($('#error-response').val().length){
   toastr["error"]($('#error-response').val());
+  window.setTimeout(function(){
+    toastr.remove();
+  },3000);
 }else if($('#success-response').val().length){
   toastr["success"]($('#success-response').val());
+  window.setTimeout(function(){
+    toastr.remove();
+  },3000);
 }else{
   console.log("neither set");
 }
-
+*/
 if($('#event_start').val() == "" || $('#event_end').val() == ""){
   $('#event_start').val($('#now').val());
-  $('#event_end').val($('#now').val());
+  $('#event_end').val($('#next').val());
 }
 
   jQuery('#event_start').datetimepicker({  

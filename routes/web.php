@@ -39,7 +39,9 @@ Route::get('/blog/{slug}', ['as' => 'blog.show', 'uses' => 'BlogController@show'
 
 Route::resource('/photos', 'PhotoController');
 
+
 Route::get('/filesIndex', 'FilesController@index')->name('loadFiles');
+Route::get('/getPD', 'FilesController@getPrayerDiary');
 Route::resource('/files', 'FilesController')->except(
     'index', 'create'
 );
@@ -48,6 +50,7 @@ Route::get('/addEvent', 'EventController@create')->name('addEvent');
 Route::get('/eventsCalendar', 'EventController@eventsCalendar')->name('eventsCalendar');
 Route::get('/events_calendar','EventController@eventsCalendarFE');
 Route::get('/eventsIndex','EventController@eventsFE');
+Route::get('/events/{id}','EventController@showEvent');
 
 
 Route::get('/events/edit/{id}', 'EventController@edit')->name('editEvent');

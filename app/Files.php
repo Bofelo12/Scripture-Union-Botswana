@@ -9,7 +9,7 @@ class Files extends Model
 {
     protected $table  = 'files';
 
-    public $fillable = ['path', 'name'];
+    public $fillable = ['path', 'name' ,'category'];
 
     public function getUrlPath(){
         return Storage::url($this->path);
