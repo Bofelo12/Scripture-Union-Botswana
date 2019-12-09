@@ -97,7 +97,8 @@
       <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-          <div id="defaultCountdown" style="background:none; border:none"></div>
+          <div id="defaultCountdown" style="background:none; border:
+          #fff solid thin;padding:5px"></div>
         </div>
         <div class="col-lg-4"></div>
       </div>
@@ -113,7 +114,52 @@
  <input type="hidden" id="hours" value="{{$date['hours']}}">
 
 
+ <div class="container">
+   <div class="row">
+     <div class="col-lg-7">
+        <div>
+            <img src="{{asset('img/event.jpg')}}" class="img-responsive" alt="event photo" >
+            
+           
+                <div style="
+                
+                border-bottom:#dddddd solid thin;
+                padding:5px
+                ">
+                  
+               <strong>POSTED </strong> 
+               <span style="padding-left:10px"> <i class="fa fa-calendar"></i> {{$event['date_posted']}}</span>
+               <span style="padding-left:10px"> <i class="fa fa-user"> </i> {{$event['publisher']}}</span>
+            
+            </div>
+            
+            <br>
+              
+                  <div class="col-lg-6">
+                    <div id="gm" class="wow fadeIn" data-latitude="-24.6413876" data-longitude="25.92
+                    74958" data-wow-duration="1000ms" data-wow-delay="400ms"></div>
+                  </div>
+                  <div class="col-lg-6">
+                    <br>
+                    <p>
+                      <span style="padding-left:10px"> <i class="fa fa-map-marker"> </i> {{$event['venue']}}</span>
+                    </p>
+                    <p>
+                      <span style="padding-left:10px"> <i class="fa fa-clock-o"> </i> {{$date['start_time']." - ".$date['end_time']}}</span>
+                    </p>
+                    <p>
+                      <span style="padding-left:10px"> <i class="fa fa-calendar"> </i> {{$date['start_date']." - ".$date['end_date']}}</span>
+                    </p>
+                  </div>
+                
+            
+        </div>
+     </div>
+     <div class="col-lg-5"></div>
+   </div>
+ </div>
 
+<br>
 <footer id="footer">
     <div class="footer-top">      
         <div class="container">
@@ -223,6 +269,7 @@ mins= $('#mins').val();
   
   });
   </script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
   <script type="text/javascript" src="{{asset('fe')}}/js/jquery.inview.min.js"></script>
   <script type="text/javascript" src="{{asset('fe')}}/js/wow.min.js"></script>
   <script type="text/javascript" src="{{asset('fe')}}/js/mousescroll.js"></script>

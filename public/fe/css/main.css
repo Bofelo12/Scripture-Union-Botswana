@@ -851,6 +851,11 @@ section {
   height: 400px;
 }
 
+#gm{
+  height: 200px;
+}
+
+
 #pic{
   background-image:url(../images/contact-bg.jpg);
   padding-bottom: 90px; 

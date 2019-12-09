@@ -72,7 +72,7 @@ class EventController extends Controller
           $event['year'] = $year;
           $event['location'] = $location;          
           $event['name'] = $name;
-  
+          $event['id'] = $i->id;
           array_push($events,$event);
         }
        //     print_r($events);
@@ -127,6 +127,18 @@ class EventController extends Controller
        $event['name'] = $data->event_name;
        $event['author'] = $data->publisher;
        $event['venue'] = $data->event_venue;
+       $event['publisher'] = $data->publisher;
+       $s = $data->created_at;
+       $event['date_posted'] = $s->format('Y-m-d');
+
+       $e= new \DateTime($data->end_date);
+       $date['end_date'] = $e->format('Y-m-d');
+       $date['start_date'] = $d->format('Y-m-d');
+       $date['end_time'] = $e->format('H:i');
+       $date['start_time'] = $d->format('H:i');
+
+
+
        return view("events.show",compact('date','event'));
 
     }

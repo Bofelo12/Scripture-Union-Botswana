@@ -113,7 +113,7 @@
               </div>
   
               <div class="col-lg-10 col-md-10 col-sm-9  col-xs-9">
-                    <a href="#" class="event-name">
+                    <a href="{{url('events')."/".$event['id']}}" class="event-name">
                         <h4 style="font-weight:500;text-transform: uppercase;">
                             {{$event['name']}}
                           </h4>
